@@ -20,13 +20,13 @@ class SewaController extends Controller
     {
 
         if($request->keyword){
-            $search = Sewa::with('kategori')->where('name', 'LIKE', '%'.$request->keyword.'%')->latest()->paginate(10);
+            $search = Sewa::with('kategori')->where('name', 'LIKE', '%'.$request->keyword.'%')->latest()->paginate(9);
             return response()->json([
                 'data' => $search
             ]);
         }
 
-        $sewas = Sewa::with('kategori')->latest()->paginate(10);
+        $sewas = Sewa::with('kategori')->latest()->paginate(9);
         return response()->json([
             'data' => $sewas
         ]);
@@ -88,7 +88,7 @@ class SewaController extends Controller
 
 public function byKategori($kate){
 
-    $sewas =  Sewa::with('kategori')->where('kate_id' , $kate)->latest()->paginate(10);
+    $sewas =  Sewa::with('kategori')->where('kate_id' , $kate)->latest()->paginate(9);
     return response()->json([
         'data' => $sewas
     ]);
@@ -106,10 +106,12 @@ public function Dashboard(){
         $kontrakan = Sewa::where('kate_id',1)->count();
         $kos = Sewa::where('kate_id',2)->count();
         $ruko = Sewa::where('kate_id',3)->count();
+        $user = User::all()->count();
         return response()->json([
             'data' => $kontrakan,
             'kos' => $kos,
-            'ruko' => $ruko
+            'ruko' => $ruko,
+            'user' => $user
         ]);
 }
 

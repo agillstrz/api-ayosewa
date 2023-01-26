@@ -28,7 +28,7 @@ class LoginController extends Controller
         }
 
         return response()->json([
-            'message' => 'Your credential does not match.',
+            'message' => 'Email dan Katasandi tidak cocok',
         ], 401);
     }
 }

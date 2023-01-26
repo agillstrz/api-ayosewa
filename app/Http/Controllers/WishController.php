@@ -93,7 +93,7 @@ class WishController extends Controller
     {
         $wish->delete();
         return response()->json([
-            'message' => 'wish dihapus'
-        ], 204);
+            'message' => 'berhasil dihapus dari wishlist'
+        ]);
     }
 }

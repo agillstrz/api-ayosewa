@@ -34,6 +34,7 @@ class RegisterController extends Controller
     
             return (new UserResource($user))->additional([
                 'token' => $token->plainTextToken,
+                'message' => 'berhasil mendaftar'
             ]);
         }
     }

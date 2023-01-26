@@ -4,6 +4,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SewaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::get('/dashboard', [SewaController::class,'Dashboard']);
 Route::apiResource('kategoris', KategoriController::class);
 
 Route::get('kategori/{kate}', [SewaController::class,'byKategori']);
+Route::get('/users', [UserController::class,'getUser']);
 
 Route::post('/register',RegisterController::class);
 Route::post('/login',LoginController::class);
